@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="160" viewBox="0 0 960 160">
+  <defs>
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E40AF"/>
+      <stop offset="100%" stop-color="#006CFF"/>
+    </linearGradient>
+    <filter id="dropShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#006CFF" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  <text x="480" y="105" font-family="'Pretendard', sans-serif" font-size="68" font-weight="bold" text-anchor="middle" fill="url(#titleGrad)" filter="url(#dropShadow)">학교폭력예방 OX퀴즈</text>
+</svg>

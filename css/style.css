@@ -1,0 +1,927 @@
+/* Reset & Typography */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif !important;
+  font-weight: 500 !important;
+}
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: url('/image0949.png') no-repeat center center / 100% 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Outer Stage Container for Auto-Scaling on any screen */
+#stage-container {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  background: url('/image0949.png') no-repeat center center / 100% 100%;
+}
+
+/* Fixed 1080x1920 Portrait Canvas */
+.signage-canvas {
+  width: 1080px;
+  height: 1920px;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  position: relative;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  transform-origin: center center;
+  box-shadow: none;
+}
+
+/* Top-Left Global Circular Back Button */
+.kiosk-back-btn {
+  position: absolute;
+  top: 36px;
+  left: 36px;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.22);
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s ease;
+  padding: 0;
+}
+
+.kiosk-back-btn:active {
+  transform: scale(0.88);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.18);
+}
+
+.kiosk-back-btn svg {
+  width: 40px;
+  height: 40px;
+  stroke: #334155;
+  display: block;
+}
+
+/* Header Area Container */
+.kiosk-header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 48px 0 48px;
+  z-index: 10;
+}
+
+.header-icon-btn {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: white;
+  border: none;
+  color: #006CFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0, 108, 255, 0.12);
+  transition: transform 0.15s ease;
+}
+
+.header-icon-btn:active {
+  transform: scale(0.92);
+}
+
+.icon-40 {
+  width: 40px;
+  height: 40px;
+}
+
+.header-home-btn {
+  height: 64px;
+  padding: 0 28px;
+  font-size: 28px;
+  font-weight: 500;
+  color: #006CFF;
+  background-color: white;
+  border: none;
+  border-radius: 32px;
+  box-shadow: 0 6px 16px rgba(0, 108, 255, 0.12);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.15s ease;
+}
+
+.header-home-btn:active {
+  transform: scale(0.94);
+}
+
+/* Game Title Banner (3-Column Layout: Left Window, Center Text, Right Shelf - Flush to Screen Edges) */
+.title-banner-wrapper {
+  margin-top: 36px;
+  margin-left: -48px;
+  margin-right: -48px;
+  width: calc(100% + 96px);
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 15;
+}
+
+.decor-left-window {
+  width: 200px;
+  max-width: 200px;
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+  filter: drop-shadow(0 6px 14px rgba(0, 80, 200, 0.08));
+}
+
+.decor-right-shelf {
+  width: 200px;
+  max-width: 200px;
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+  filter: drop-shadow(0 6px 14px rgba(0, 80, 200, 0.08));
+}
+
+.title-center-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: 0 8px;
+}
+
+.title-header-main-text {
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 500;
+  font-size: 44px;
+  color: #1E3A8A;
+  letter-spacing: -1px;
+  text-align: center;
+  line-height: 1.2;
+  text-shadow: 0 3px 8px rgba(255, 255, 255, 0.9);
+  background: linear-gradient(180deg, #1E40AF 0%, #1D4ED8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 10px rgba(0, 80, 200, 0.15));
+}
+
+.title-text-img {
+  width: 650px;
+  max-width: 96%;
+  height: auto;
+  max-height: 290px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 8px 24px rgba(0, 80, 220, 0.16));
+  animation: titlePulse 3.5s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+/* Safety Quiz Title Banner Styles */
+.title-env-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  text-align: center;
+  padding: 8px 0;
+  animation: titlePulse 3.5s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+.title-school-tag {
+  font-family: 'Gaegu', 'Jua', 'Pretendard', sans-serif !important;
+  font-size: 26px !important;
+  font-weight: 700 !important;
+  color: #1E40AF !important;
+  background: #EFF6FF !important;
+  border: 3px solid #93C5FD !important;
+  padding: 4px 28px !important;
+  border-radius: 28px !important;
+  margin-bottom: 8px !important;
+  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.12) !important;
+  letter-spacing: -0.5px;
+  display: inline-block;
+}
+
+.title-env-main {
+  font-family: 'Jua', 'Gaegu', 'Pretendard', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 54px !important;
+  color: #1E3A8A !important;
+  letter-spacing: -1px;
+  text-shadow: 0 4px 0 #FFFFFF, 0 6px 16px rgba(30, 58, 138, 0.2) !important;
+  line-height: 1.15;
+  margin: 0 !important;
+}
+
+@keyframes titlePulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.title-sub-text {
+  margin-top: 6px;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.35;
+  color: #3B629B;
+  text-align: center;
+  letter-spacing: -0.5px;
+}
+
+.timer-pill-badge {
+  margin-top: 8px;
+  margin-bottom: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background-color: #E0F2FE;
+  border: none;
+  border-radius: 36px;
+  padding: 8px 30px;
+  box-shadow: none;
+  font-family: 'Pretendard', sans-serif !important;
+  font-weight: 500;
+  font-size: 26px;
+  color: #0369A1;
+}
+
+.timer-pill-badge.warning {
+  background: linear-gradient(180deg, #FEE2E2 0%, #FCA5A5 100%);
+  border-color: #EF4444;
+  color: #991B1B;
+  animation: pulse-warn 0.8s infinite alternate;
+}
+
+@keyframes pulse-warn {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.06); }
+}
+
+/* Main View Container */
+.kiosk-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 48px 16px 48px;
+  gap: 14px;
+  position: relative;
+  z-index: 10;
+  overflow: visible;
+}
+
+/* =========================================================
+   CHALKBOARD STYLING (칠판)
+   ========================================================= */
+.chalkboard-container {
+  height: 560px;
+  min-height: 560px;
+  box-sizing: border-box;
+  flex: none;
+  background-color: #1D4A38;
+  border: 14px solid #D7A063;
+  border-radius: 36px;
+  padding: 20px 28px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 
+    inset 0 0 50px rgba(0, 0, 0, 0.4),
+    inset 0 2px 4px rgba(255, 255, 255, 0.5);
+  position: relative;
+  overflow: visible;
+  margin-top: 10px;
+}
+
+/* Bear Mascot Attached to Top Right of Chalkboard Frame with Zero Gap */
+.chalkboard-mascot-img {
+  position: absolute;
+  bottom: 100%;
+  right: -10px;
+  margin-bottom: -14px; /* Flushes bottom directly onto 14px wooden frame without gap */
+  width: 250px;
+  height: auto;
+  max-height: 250px;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 20px rgba(0, 80, 200, 0.2));
+  z-index: 30;
+  pointer-events: none;
+}
+
+/* Subtle chalk dust background radial gradient */
+.chalkboard-container::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.06) 0%, transparent 75%);
+  border-radius: 22px;
+  pointer-events: none;
+}
+
+/* Bottom Wooden Chalk Tray Ledge */
+.chalkboard-tray {
+  position: absolute;
+  bottom: 0;
+  left: -14px;
+  right: -14px;
+  height: 28px;
+  background: linear-gradient(180deg, #C58F52 0%, #A47037 100%);
+  border-top: 3px solid #E8B97F;
+  box-shadow: 0 -4px 8px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  z-index: 5;
+}
+
+/* Eraser (지우개) */
+.tray-eraser {
+  width: 90px;
+  height: 20px;
+  background: #2563EB;
+  border-radius: 4px;
+  position: relative;
+  box-shadow: 0 -2px 4px rgba(0,0,0,0.3);
+  transform: translateY(-8px);
+}
+
+.tray-eraser::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: #1E293B;
+  border-radius: 0 0 4px 4px;
+}
+
+/* Chalk Sticks on Tray */
+.tray-chalks-row {
+  display: flex;
+  gap: 12px;
+  margin-left: 30px;
+  transform: translateY(-6px);
+}
+
+.chalk-stick {
+  width: 50px;
+  height: 10px;
+  border-radius: 3px;
+  box-shadow: 0 -2px 3px rgba(0,0,0,0.2);
+}
+
+.chalk-white { background: #FFFFFF; }
+.chalk-yellow { background: #FDE047; }
+.chalk-pink { background: #F472B6; }
+.chalk-blue { background: #38BDF8; }
+
+/* Chalkboard Doodles */
+.chalk-doodle {
+  position: absolute;
+  font-family: 'Pretendard', sans-serif;
+  user-select: none;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.doodle-star { top: 16px; left: 24px; font-size: 32px; color: #FDE047; }
+.doodle-note1 { top: 140px; left: 20px; font-size: 32px; color: #F472B6; }
+.doodle-school { bottom: 35px; left: 24px; font-size: 36px; color: #FFFFFF; }
+.doodle-notes2 { top: 16px; right: 24px; font-size: 32px; color: #38BDF8; }
+.doodle-heart { top: 140px; right: 20px; font-size: 32px; color: #F472B6; }
+.doodle-flower { bottom: 35px; right: 24px; font-size: 36px; color: #FDE047; }
+
+/* Chalkboard Question & OX Quiz Layout */
+.chalk-header-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 0 8px;
+  margin-bottom: 8px;
+  z-index: 2;
+}
+
+.chalk-badge-category {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.18);
+  border: 2px solid #FEF08A;
+  color: #FEF08A;
+  font-weight: 500;
+  font-size: 24px;
+  padding: 8px 20px;
+  border-radius: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.chalk-badge-qnum {
+  background: #15803D;
+  border: 2px solid #86EFAC;
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 26px;
+  padding: 8px 24px;
+  border-radius: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.chalk-question-box {
+  width: 100%;
+  min-height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 24px 16px 24px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 12px;
+  z-index: 2;
+  box-shadow: none;
+}
+
+.chalk-question-text {
+  font-family: 'Pretendard', sans-serif !important;
+  font-size: 42px;
+  font-weight: 500;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 1.5;
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.8), 2px 2px 6px rgba(0, 0, 0, 0.6);
+  word-break: keep-all;
+}
+
+.chalk-explanation-box {
+  width: 100%;
+  padding: 24px 32px;
+  border-radius: 24px;
+  z-index: 2;
+  animation: pop-bounce 0.35s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.chalk-explanation-box.exp-correct {
+  background: rgba(5, 150, 105, 0.92);
+  border: 3.5px solid #34D399;
+}
+
+.chalk-explanation-box.exp-wrong {
+  background: rgba(185, 28, 28, 0.92);
+  border: 3.5px solid #F87171;
+}
+
+.exp-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.exp-icon {
+  font-size: 36px;
+}
+
+.exp-status-text {
+  font-size: 32px;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+.exp-body-text {
+  font-size: 28px;
+  font-weight: 500;
+  color: #F8FAFC;
+  line-height: 1.45;
+  word-break: keep-all;
+}
+
+.chalk-prompt-hint {
+  display: none;
+}
+
+/* =========================================================
+   BOTTOM O/X SELECTION TRAY (칠판 아래 O/X 선택칸)
+   ========================================================= */
+.ox-selection-tray {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 0px;
+  z-index: 10;
+}
+
+.ox-buttons-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.ox-btn {
+  height: 500px;
+  border-radius: 32px;
+  border: 6px solid transparent;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end; /* 이미지 하단 정렬 */
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+  user-select: none;
+  position: relative;
+  padding: 12px 10px 18px 10px; /* 하단 여백 추가 */
+  overflow: hidden;
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.15), 0 6px 16px rgba(0, 0, 0, 0.08); /* 버튼 뒤 쉐도우 */
+}
+
+.ox-btn:active {
+  transform: translateY(4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+}
+
+.ox-btn-o {
+  background: #F0F7FF; /* 선택 전 아주 옅은 연하늘색 */
+  color: #1D4ED8;
+  box-shadow: 0 16px 36px rgba(37, 99, 235, 0.12), 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+.ox-btn-o:active {
+  background: #DBEAFE;
+}
+
+.ox-btn-o.selected {
+  border-color: #2563EB;
+  background: #DBEAFE;
+  box-shadow: 0 22px 44px rgba(37, 99, 235, 0.35);
+}
+
+.ox-btn-x {
+  background: #FFF2F4; /* 선택 전 연한 연핑크색 */
+  color: #DC2626;
+  box-shadow: 0 16px 36px rgba(220, 38, 38, 0.12), 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+.ox-btn-x:active {
+  background: #FECDD3;
+}
+
+.ox-btn-x.selected {
+  border-color: #DC2626;
+  background: #FECDD3;
+  box-shadow: 0 22px 44px rgba(220, 38, 38, 0.35);
+}
+
+.ox-btn.selected {
+  outline: none;
+  transform: scale(1.02);
+}
+
+.ox-btn.is-answer {
+  animation: pop-bounce 0.4s ease;
+}
+
+.ox-img {
+  height: 450px;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  margin-bottom: 8px; /* 캐릭터 하단 마진 추가 */
+  vertical-align: bottom;
+}
+
+.ox-btn-o .ox-img {
+  transform: translateX(-24px);
+  filter: drop-shadow(0 6px 12px rgba(37, 99, 235, 0.22));
+}
+
+.ox-btn-x .ox-img {
+  transform: translateX(24px);
+  filter: drop-shadow(0 6px 12px rgba(239, 68, 68, 0.22));
+}
+
+.ox-label {
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 500;
+  font-size: 36px;
+  letter-spacing: -0.5px;
+}
+
+.result-correct-detail {
+  font-size: 34px;
+  font-weight: 500;
+  color: #1E293B;
+  margin: -6px 0 10px 0;
+}
+
+/* Actions attached directly under syllable keypad cards */
+.keypad-actions-row {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Bottom Controls Bar (지우개, 힌트, 확인 등) */
+.bottom-controls-bar {
+  display: flex;
+  gap: 16px;
+  z-index: 10;
+}
+
+.ctrl-btn {
+  height: 100px;
+  flex: 1;
+  border-radius: 32px;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 500;
+  font-size: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.ctrl-btn:active {
+  transform: scale(0.96);
+}
+
+.ctrl-btn-sec {
+  background-color: #FFFFFF;
+  color: #006CFF;
+  border: none;
+  box-shadow: 0 8px 20px rgba(0, 108, 255, 0.15);
+}
+
+.ctrl-btn-pri {
+  background: #006CFF;
+  color: #FFFFFF;
+  box-shadow: 0 12px 28px rgba(0, 108, 255, 0.35);
+}
+
+.ctrl-btn-accent {
+  background: linear-gradient(180deg, #10B981 0%, #059669 100%);
+  color: #FFFFFF;
+  box-shadow: 0 12px 28px rgba(16, 185, 129, 0.3);
+}
+
+/* =========================================================
+   HOME & RESULT MODAL VIEWS
+   ========================================================= */
+.home-view-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  height: 100%;
+}
+
+.card-white {
+  background: #FFFFFF;
+  border-radius: 32px;
+  padding: 32px;
+  box-shadow: 0 16px 36px rgba(0, 108, 255, 0.08);
+}
+
+.school-badge-wrapper {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: white;
+  padding: 12px;
+  box-shadow: 0 12px 28px rgba(0, 108, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.school-badge-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.verse-opt-row {
+  display: flex;
+  gap: 16px;
+}
+
+.verse-opt-btn {
+  flex: 1;
+  height: 84px;
+  border-radius: 24px;
+  background-color: #FFFFFF;
+  border: 3px solid #E2E8F0;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 500;
+  font-size: 32px;
+  color: #475569;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.verse-opt-btn.selected {
+  background-color: #006CFF;
+  border-color: #006CFF;
+  color: #FFFFFF;
+  box-shadow: 0 8px 20px rgba(0, 108, 255, 0.25);
+}
+
+/* Result Modal Popup */
+.result-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10000px;
+  height: 10000px;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.52);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  box-sizing: border-box;
+}
+
+/* Toast Popup Styling */
+.game-toast-popup {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #FFFFFF;
+  padding: 32px 56px;
+  border-radius: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  z-index: 150;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  animation: toast-pop-in 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  pointer-events: none;
+}
+
+.game-toast-popup.wrong-toast {
+  border: 6px solid #EF4444;
+  background: #FEF2F2;
+}
+
+.game-toast-popup.success-toast {
+  border: 6px solid #10B981;
+  background: #ECFDF5;
+}
+
+.toast-icon {
+  font-size: 68px;
+}
+
+.toast-text {
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 500;
+  font-size: 52px;
+  color: #1E293B;
+  white-space: nowrap;
+}
+
+.game-toast-popup.wrong-toast .toast-text {
+  color: #DC2626;
+}
+
+.game-toast-popup.success-toast .toast-text {
+  color: #059669;
+}
+
+.game-toast-popup.fade-out {
+  animation: toast-fade-out 0.4s ease forwards;
+}
+
+@keyframes toast-pop-in {
+  0% { transform: translate(-50%, -50%) scale(0.6); opacity: 0; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+@keyframes toast-fade-out {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+}
+
+.result-dialog {
+  background: #FFFFFF;
+  border: 6px solid #006CFF;
+  border-radius: 40px;
+  padding: 48px;
+  width: 960px;
+  max-width: 960px;
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+  animation: pop-bounce 0.5s ease;
+}
+
+.result-trophy {
+  font-size: 110px;
+  animation: bounce 1.2s infinite alternate;
+}
+
+.result-title-text {
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 500;
+  font-size: 56px;
+  color: #0F172A;
+}
+
+.result-score-big {
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 500;
+  font-size: 88px;
+  color: #006CFF;
+}
+
+/* Animations */
+@keyframes pop-bounce {
+  0% { transform: scale(0.8); opacity: 0; }
+  70% { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-10px); }
+  40%, 80% { transform: translateX(10px); }
+}
+
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-20px); }
+}
+

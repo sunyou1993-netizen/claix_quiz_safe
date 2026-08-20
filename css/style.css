@@ -66,10 +66,13 @@ html, body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  z-index: 100;
+  z-index: 1000;
   box-shadow: 0 8px 24px rgba(15, 23, 42, 0.22);
   transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s ease;
   padding: 0;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
 }
 
 .kiosk-back-btn:active {
@@ -141,7 +144,7 @@ html, body {
 
 /* Game Title Banner (3-Column Layout: Left Window, Center Text, Right Shelf - Flush to Screen Edges) */
 .title-banner-wrapper {
-  margin-top: 0px;
+  margin-top: 36px;
   margin-left: -48px;
   margin-right: -48px;
   width: calc(100% + 96px);
@@ -310,7 +313,7 @@ html, body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 10px 48px 16px 48px;
+  padding: 32px 48px 16px 48px;
   gap: 14px;
   position: relative;
   z-index: 10;

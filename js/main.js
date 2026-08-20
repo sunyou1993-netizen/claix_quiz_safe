@@ -775,7 +775,10 @@ function showResultModal() {
         </div>
 
         <div style="display: flex; gap: 20px; width: 100%; margin-top: 20px;">
-          <button id="btn-modal-retry" class="ctrl-btn ctrl-btn-pri" style="height: 100px;">
+          <button id="btn-modal-home" class="ctrl-btn ctrl-btn-sec" style="height: 100px; flex: 1;">
+            <span>홈으로 이동</span>
+          </button>
+          <button id="btn-modal-retry" class="ctrl-btn ctrl-btn-pri" style="height: 100px; flex: 1.3;">
             <span>다시 풀어보기</span>
           </button>
         </div>
@@ -795,40 +798,93 @@ function showResultModal() {
       initGameSession();
     });
   }
+
+  const modalHomeBtn = document.getElementById('btn-modal-home');
+  if (modalHomeBtn) {
+    modalHomeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      sfx.playClick();
+      navigateToHomeUrl();
+    });
+  }
 }
 
 // ==========================================
-// 6. INITIALIZATION & GLOBAL LISTENERS
+// 6. NAVIGATION & GLOBAL LISTENERS
 // ==========================================
+const QUIZ_LIST_HOME_URL = 'https://claix-quiz-list6-bp67.vercel.app/';
+
+export function navigateToHomeUrl(e) {
+  try {
+    sfx.playClick();
+  } catch (err) {}
+
+  // 1. Direct window navigation (highest priority)
+  try {
+    window.location.href = QUIZ_LIST_HOME_URL;
+  } catch (err) {}
+
+  try {
+    window.location.replace(QUIZ_LIST_HOME_URL);
+  } catch (err) {}
+
+  // 2. Top-level window navigation (for kiosks, embedded iframes)
+  try {
+    if (window.top && window.top !== window) {
+      window.top.location.href = QUIZ_LIST_HOME_URL;
+    }
+  } catch (err) {}
+
+  // 3. Parent-level window navigation
+  try {
+    if (window.parent && window.parent !== window) {
+      window.parent.location.href = QUIZ_LIST_HOME_URL;
+    }
+  } catch (err) {}
+
+  // 4. Force assign fallback
+  try {
+    window.location.assign(QUIZ_LIST_HOME_URL);
+  } catch (err) {}
+
+  // 5. Native window open fallback
+  try {
+    window.open(QUIZ_LIST_HOME_URL, '_top');
+  } catch (err) {}
+}
+
+window.navigateToHomeUrl = navigateToHomeUrl;
+
 document.addEventListener('DOMContentLoaded', () => {
   setupAutoScaling();
+
+  // Setup history trap for hardware/browser back buttons
+  try {
+    window.history.pushState({ page: 'quiz-app' }, '', window.location.href);
+    window.addEventListener('popstate', () => {
+      navigateToHomeUrl();
+    });
+  } catch (e) {}
 
   // Top-Left Global Circular Back Button
   const btnGlobalBack = document.getElementById('btn-global-back');
   if (btnGlobalBack) {
-    btnGlobalBack.addEventListener('click', () => {
-      sfx.playClick();
-      window.location.href = 'https://claix-quiz-list-rl4x.vercel.app/';
-    });
+    const handleBackNavigation = (e) => {
+      navigateToHomeUrl(e);
+    };
+
+    btnGlobalBack.addEventListener('click', handleBackNavigation);
+    btnGlobalBack.addEventListener('touchend', handleBackNavigation);
+    btnGlobalBack.addEventListener('pointerup', handleBackNavigation);
   }
 
-  // Header Back Button
-  const btnBack = document.getElementById('btn-back');
-  if (btnBack) {
-    btnBack.addEventListener('click', () => {
-      sfx.playClick();
-      initGameSession();
-    });
-  }
-
-  // Header Home / Close Button
-  const btnClose = document.getElementById('btn-close');
-  if (btnClose) {
-    btnClose.addEventListener('click', () => {
-      sfx.playClick();
-      initGameSession();
-    });
-  }
+  // Header Back Button (if dynamically rendered)
+  document.addEventListener('click', (e) => {
+    const target = e.target.closest('#btn-back, #btn-close, .kiosk-back-btn, #btn-modal-home');
+    if (target) {
+      navigateToHomeUrl(e);
+    }
+  });
 
   // Start initial game session immediately
   initGameSession();

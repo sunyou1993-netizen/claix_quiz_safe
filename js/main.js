@@ -808,7 +808,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (btnGlobalBack) {
     btnGlobalBack.addEventListener('click', () => {
       sfx.playClick();
-      window.location.href = 'https://claix-quiz-list6-bp67.vercel.app/';
+      window.location.href = 'https://claix-quiz-list-rl4x.vercel.app/';
     });
   }
 

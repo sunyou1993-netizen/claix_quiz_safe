@@ -141,7 +141,7 @@ html, body {
 
 /* Game Title Banner (3-Column Layout: Left Window, Center Text, Right Shelf - Flush to Screen Edges) */
 .title-banner-wrapper {
-  margin-top: 36px;
+  margin-top: 0px;
   margin-left: -48px;
   margin-right: -48px;
   width: calc(100% + 96px);
@@ -310,7 +310,7 @@ html, body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 32px 48px 16px 48px;
+  padding: 10px 48px 16px 48px;
   gap: 14px;
   position: relative;
   z-index: 10;

@@ -774,11 +774,8 @@ function showResultModal() {
           나와 친구들의 안전을 지키는 멋진 어린이! 🚦✨
         </div>
 
-        <div style="display: flex; gap: 20px; width: 100%; margin-top: 20px;">
-          <button id="btn-modal-home" class="ctrl-btn ctrl-btn-sec" style="height: 100px; flex: 1;">
-            <span>홈으로 이동</span>
-          </button>
-          <button id="btn-modal-retry" class="ctrl-btn ctrl-btn-pri" style="height: 100px; flex: 1.3;">
+        <div style="width: 100%; margin-top: 24px;">
+          <button id="btn-modal-retry" class="ctrl-btn ctrl-btn-pri" style="height: 108px; width: 100%; font-size: 34px; font-weight: 700;">
             <span>다시 풀어보기</span>
           </button>
         </div>
@@ -796,15 +793,6 @@ function showResultModal() {
       const overlay = document.querySelector('.result-overlay');
       if (overlay) overlay.remove();
       initGameSession();
-    });
-  }
-
-  const modalHomeBtn = document.getElementById('btn-modal-home');
-  if (modalHomeBtn) {
-    modalHomeBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      sfx.playClick();
-      navigateToHomeUrl();
     });
   }
 }
@@ -880,7 +868,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Header Back Button (if dynamically rendered)
   document.addEventListener('click', (e) => {
-    const target = e.target.closest('#btn-back, #btn-close, .kiosk-back-btn, #btn-modal-home');
+    const target = e.target.closest('#btn-back, #btn-close, .kiosk-back-btn');
     if (target) {
       navigateToHomeUrl(e);
     }
